@@ -13,7 +13,7 @@
 @layer components {
     .logo {
         font-weight: 600;
-        @apply bg-gradient-to-l from-sky-400 to-blue-500 text-2xl text-blue-400;
+        @apply bg-gradient-to-l from-sky-400 to-blue-500 text-2xl text-blue-400 cursor-pointer;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         animation: wave 2.5s infinite linear;
@@ -54,5 +54,63 @@
 
     .counter {
         @apply bg-red-500 rounded-3xl text-[10px] font-bold leading-relaxed text-white absolute px-[0.325rem] -right-2 -top-1 border border-white;
+    }
+
+    /* main content  */
+    .heading {
+        @apply border-b p-5;
+    }
+
+    .products {
+        @apply w-full flex flex-wrap justify-center gap-5 mx-auto py-10;
+    }
+
+    .card {
+        @apply xl:w-1/5 border rounded-xl hover:shadow-md hover:shadow-slate-100 transform hover:-translate-y-2 transition duration-300;
+    }
+
+    .card-img {
+        @apply w-full;
+    }
+
+    .card-img > img {
+        @apply rounded-t-xl;
+    }
+
+    .card-body {
+        @apply flex flex-col py-2 px-4 gap-2;
+    }
+
+    .card-title {
+        @apply text-base font-normal uppercase text-gray-800;
+    }
+
+    .card-price {
+        @apply text-lg font-semibold text-gray-900;
+    }
+
+    .card-buttons {
+        @apply flex justify-around items-center mt-2;
+    }
+
+    .btn {
+        @apply rounded-xl bg-slate-500 text-white px-4 py-2 text-sm transition duration-300;
+    }
+
+    .btn-outline {
+        @apply bg-white border text-gray-800;
+    }
+
+    .btn-primary {
+        @apply text-white bg-blue-500 hover:bg-blue-700;
+    }
+
+    .btn-outline-primary {
+        @apply border-blue-500 text-blue-500 hover:border-blue-700 hover:text-blue-700;
+    }
+
+    /* footer content */
+    footer {
+        @apply w-screen flex justify-center p-4 font-light fixed bg-white bottom-0 border shadow-md shadow-slate-100;
     }
 }
