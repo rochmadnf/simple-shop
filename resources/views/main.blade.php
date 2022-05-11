@@ -15,10 +15,19 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="w-screen h-screen">
+<body>
+    {{-- component header --}}
     <header class="flex bg-white shadow-md shadow-slate-100 py-3 px-5 justify-between items-center">
         {{-- left --}}
-        <div class="logo">Simple Shop</div>
+        <div class="logo">{{ env('APP_NAME') }}</div>
+
+        {{-- middle --}}
+        <div class="hidden md:flex rounded-full justify-around items-center pl-2 pr-4 border-2 border-gray-100">
+            <label for="search" class="rounded-full bg-blue-400 p-1">
+                <x-phosphor-magnifying-glass-bold class="h-4 w-4 text-white" />
+            </label>
+            <input type="search" name="search" id="search" placeholder="Cari body serum">
+        </div>
 
         {{-- right --}}
         <div class="actions">
@@ -27,7 +36,7 @@
                 <span class="counter">5</span>
             </div>
             <div class="action">
-                <x-phosphor-newspaper-clipping-fill />
+                <x-phosphor-user-circle-fill />
             </div>
         </div>
     </header>
