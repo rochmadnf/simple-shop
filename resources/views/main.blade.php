@@ -50,20 +50,11 @@
             <h1 class="flex justify-center items-center text-3xl text-gray-700 font-semibold">Semua Produk</h1>
         </div>
 
-        <section class="products">
-            <div class="card">
-                <div class="card-img">
-                    <img src="https://via.placeholder.com/300" alt="">
-                </div>
-                <div class="card-body">
-                    <div class="card-title">Brightening Body Serum</div>
-                    <div class="card-price">Rp50000</div>
-                    <div class="card-buttons">
-                        <button class="btn btn-outline btn-outline-primary">Beli Langsung</button>
-                        <button class="btn btn-primary">+ Keranjang</button>
-                    </div>
-                </div>
-            </div>
+        <section class="products" id="products">
+            <x-skeleton-card />
+            <x-skeleton-card />
+            <x-skeleton-card />
+            <x-skeleton-card />
         </section>
 
     </main>
@@ -71,6 +62,7 @@
     <footer>
         Test Case &copy; 2022 by Rochmad Nurul Fahmi
     </footer>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>
