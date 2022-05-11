@@ -1,4 +1,5 @@
 const Card = (product) => {
+
   const imageList = [
     'https://www.kedasbeautymember.com/img/serum.adf9b938.png',
     'https://www.kedasbeautymember.com/img/soap.30d14d9f.png',

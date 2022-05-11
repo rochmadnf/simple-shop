@@ -1,14 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
   return view('main');
 });
 
-Route::get('/getData', function () {
-  $client = new GuzzleHttp\Client();
-  $response = $client->request('GET', 'https://api.kedasbeautymember.com/public/api/products');
-
-  return json_decode($response->getBody());
-});
+Route::get('/products/get', [ProductController::class, 'all']);
+Route::get('/products/search', [ProductController::class, 'search']);

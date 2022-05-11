@@ -2254,44 +2254,114 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+var toast = function toast(mode, title, message) {
+  iziToast[mode]({
+    title: title,
+    message: message,
+    position: 'topRight',
+    messageColor: '#1E293B',
+    timeout: 2500
+  });
+};
+
+function printCard(products) {
+  if (products.length > 0) {
+    // get element to show product
+    var productDoc = document.getElementById('products'); // remove skeleton
+
+    productDoc.innerHTML = ""; // print product
+
+    products.map(function (product) {
+      productDoc.insertAdjacentHTML('beforeend', (0,_components_Card__WEBPACK_IMPORTED_MODULE_1__["default"])(product));
+    });
+  } else {
+    toast("info", "Info", "Produk belum tersedia");
+  }
+}
+
 function getProducts() {
   return _getProducts.apply(this, arguments);
 }
 
 function _getProducts() {
-  _getProducts = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-    var products, productDoc;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+  _getProducts = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+    var products;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
       while (1) {
-        switch (_context.prev = _context.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
-            _context.next = 2;
-            return fetch("".concat(location.protocol, "//").concat(location.host, "/getData")).then(function (res) {
+            _context2.next = 2;
+            return fetch("".concat(location.protocol, "//").concat(location.host, "/products/get")).then(function (res) {
               return res.json();
             });
 
           case 2:
-            products = _context.sent;
-            // get element to show product
-            productDoc = document.getElementById('products'); // remove skeleton
+            products = _context2.sent;
+            printCard(products);
 
-            productDoc.innerHTML = ""; // print product
+          case 4:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return _getProducts.apply(this, arguments);
+}
 
-            products.map(function (product) {
-              productDoc.insertAdjacentHTML('beforeend', (0,_components_Card__WEBPACK_IMPORTED_MODULE_1__["default"])(product));
-            });
+getProducts(); // search product
+
+document.getElementById('search').addEventListener('keypress', /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
+    var keyword, products;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            if (!(e.key == "Enter")) {
+              _context.next = 10;
+              break;
+            }
+
+            keyword = e.target.value;
+
+            if (!(keyword.length < 3)) {
+              _context.next = 6;
+              break;
+            }
+
+            toast("error", "Galat", "Kata kunci harus lebih atau sama dengan 3 karakter");
+            _context.next = 10;
+            break;
 
           case 6:
+            _context.next = 8;
+            return fetch("".concat(location.protocol, "//").concat(location.host, "/products/search?keyword=").concat(keyword)).then(function (res) {
+              return res.json();
+            });
+
+          case 8:
+            products = _context.sent;
+            printCard(products);
+
+          case 10:
           case "end":
             return _context.stop();
         }
       }
     }, _callee);
   }));
-  return _getProducts.apply(this, arguments);
-}
 
-getProducts();
+  return function (_x) {
+    return _ref.apply(this, arguments);
+  };
+}()); // clear search
+
+document.getElementById('search').addEventListener('search', function (e) {
+  if (e.target.value === "") {
+    getProducts();
+  }
+});
 
 /***/ }),
 
