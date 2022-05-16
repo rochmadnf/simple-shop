@@ -64,3 +64,7 @@
 
 -   [ ] Buat halaman pemesanan sederhana dengan respon ke user apabila transaksi telah berhasil dilakukan (contoh menampilkan invoice). Poin++ apabila invoicenya dapat diprint dalam bentuk PDF. _(on progress)_
 -   [ ] Buat halaman manajemen data pemesanan yang diterima dengan fungsi UPDATE. Poin+ jika dapat menampilkan detail dalam bentuk invoice _(on progress)_
+
+## Extends Feature
+
+-   [x] Search product by name
