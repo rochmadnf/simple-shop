@@ -9,7 +9,7 @@
     <meta name="description" content="simple shop untuk ujicoba lowongan pekerjaan pada PT. MAHAPURNA MANDIRI UTAMA" />
     <meta name="author" content="Rochmad Nurul Fahmi" />
 
-    <title>Simple Shop</title>
+    <title>{{ env('APP_NAME') }}</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css"
         integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag=="
